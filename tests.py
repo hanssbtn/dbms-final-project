@@ -55,7 +55,7 @@ def multiprocess_select_test() -> list[pyodbc.Row]:
     proc = []
     with futures.ProcessPoolExecutor() as pool:
         chunks = [
-            pool.submit(read_chunk, 1, LAST_INDEX)
+            pool.submit(read_chunk, 1, chunk_count) for _ in range(0, 10)  
         ]
         for future in futures.as_completed(chunks):
             proc.append(future.result())
