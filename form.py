@@ -102,7 +102,7 @@ def make_charts() -> None:
         end_month: int
         print(month_set)
         while True:
-            print("Choose month range separated by (-): ")
+            print("Choose months: ")
             print("\n".join(f"{i + 1}: {month_names[m - 1]}" for i, m in enumerate(month_set)))
             try:
                 start_month = int(input(f"Enter start month (1-{len(month_set)}): "))
@@ -169,7 +169,7 @@ def make_charts() -> None:
                 f.show()
                 match (input("Would you like to save this chart? [y/n] ")).lower():
                     case "y" | "yes":
-                        f.savefig(f"{menu_item_list[menu_items[i]]} Sales ({month_names[start_month - 1]} {y} - {month_names[end_month - 1]}-{y}).png")
+                        f.savefig(f"{menu_item_list[menu_items[i]]} Sales ({month_names[start_month - 1]} {y} - {month_names[end_month - 1]} {y}).png")
                         break
                     case "n" | "no" | "q":
                         break
