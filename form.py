@@ -98,17 +98,6 @@ def make_charts() -> None:
             except Exception as e:
                 print(f"Please enter a valid year. {e}")
         month_set = get_month(y)
-
-
-        # with futures.ProcessPoolExecutor() as pool:
-        #     chunks = [
-        #         pool.submit(execute_query, queries["get_current_year"])
-        #     ]
-        #     for future in futures.as_completed(chunks):
-        #         set_res.add(future.result())
-
-        #     del chunks
-
         start_month: int
         end_month: int
         print(month_set)
@@ -196,7 +185,7 @@ def make_charts() -> None:
         while (True):
             match (input("Would you like to plot another chart? [y/n] ")).lower():
                 case "y" | "yes":
-                    
+                    make_charts()
                     break
                 case "n" | "no" | "q":
                     break
